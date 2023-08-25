@@ -1,6 +1,8 @@
 // import logo from './logo.svg';
 // import './App.css';
 import React from 'react';
+
+import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from './components/Expenses/Expenses';
 const App = () => {
   const expenses = [
@@ -30,6 +32,11 @@ const App = () => {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log('In APP.js');
+    console.log(expense);
+  };
+
   return (
     // <div className="App">
     //   <header className="App-header">
@@ -55,7 +62,8 @@ const App = () => {
     //   React.createElement(Expenses, { items: expenses })
 
     <div>
-      <h2>Let's get started</h2>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      {/* onAddExpense is function pointer which is passes as our argument */}
       <Expenses items={expenses} />
     </div>
   );
